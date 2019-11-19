@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="小天的Blog" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -21,12 +21,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能： 1.快速定位数据2.并发变更数据3.数据的过期控制与异步写入4.高并发的情况下缓存数据的">
+  <meta name="description" content="大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发读写缓存实现机制：为什么ConcurrentHashMap可以这么快">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能： 1.快速定位数据2.并发变更数据3.数据的过期控制与异步写入4.高并发的情况下缓存数据的">
-<meta property="og:locale" content="en">
+<meta property="og:site_name" content="小天的Blog">
+<meta property="og:description" content="大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能：">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-19T03:06:10.339Z">
 <meta name="twitter:card" content="summary">
 
@@ -70,7 +70,7 @@
   };
 </script>
 
-  <title>并发读写缓存实现机制：为什么ConcurrentHashMap可以这么快 | Hexo</title>
+  <title>并发读写缓存实现机制：为什么ConcurrentHashMap可以这么快 | 小天的Blog</title>
   
 
 
@@ -114,14 +114,14 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">小天的Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -135,12 +135,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Kategorien</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
 
   </li>
   </ul>
@@ -168,17 +183,17 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="XiaoTian">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小天的Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -190,10 +205,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2019-11-19 11:05:33 / Modified: 11:06:10" itemprop="dateCreated datePublished" datetime="2019-11-19T11:05:33+08:00">2019-11-19</time>
+              <time title="Erstellt: 2019-11-19 11:05:33 / Geändert am: 11:06:10" itemprop="dateCreated datePublished" datetime="2019-11-19T11:05:33+08:00">2019-11-19</time>
             </span>
 
           
@@ -207,7 +222,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能：</p>
+        <p>大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能：</p><a id="more"></a>
 <p>1.快速定位数据<br>2.并发变更数据<br>3.数据的过期控制与异步写入<br>4.高并发的情况下缓存数据的一致性</p>
 <p>　　接下来，我就就几篇文章从上述几个方面来讲述下单服务器的缓存实现原理，本文的缓存是在guava的Cache基础上进一步扩展，原google缓存文档可参考：<a href="http://code.google.com/p/guava-libraries/wiki/CachesExplained" target="_blank" rel="noopener">http://code.google.com/p/guava-libraries/wiki/CachesExplained</a></p>
 <p>注意：本文是guava的Cache增强版，因此源码有稍许改动，详细源码请参考：<a href="https://github.com/cm4j/cm4j-all。" target="_blank" rel="noopener">https://github.com/cm4j/cm4j-all。</a></p>
@@ -219,7 +234,7 @@
 <p> 清单1：HashEntry的定义<br>static final class HashEntry&lt;K, V&gt; {<br>    final K key;<br>    final int hash;<br>    volatile AbsReference value;<br>    final HashEntry&lt;K, V&gt; next;<br>}</p>
 <pre><code>书本上同一目录和子目录下面可能包含许多个章节内容，同样的，在ConcurrentHashMap中同一个Segment中同一个HashEntry代表的位置上可能也有许多不同的内容，我们称之为数据碰撞，而ConcurrentHashMap采用“分离链接法”来处理“碰撞”，即把“碰撞”的 HashEntry 对象链接成一个链表，一个接一个的。
 HashEntry的一个特点，除了value以外，其他的几个变量都是final的，这样做是为了防止链表结构被破坏，出现ConcurrentModification的情况，这种不变性来降低读操作对加锁的需求，ConcurrentHashMap才能保证数据在高并发的一致性。后面的数据写入章节我们再进行讨论数据是如何插入和移除的。</code></pre><p>b.Segment</p>
-<p> 清单2：Segment的定义<br>static final class Segment extends ReentrantLock implements Serializable {<br>    transient volatile int count;<br>    transient int modCount;<br>    transient int threshold;<br>    transient volatile AtomicReferenceArray<HashEntry> table;<br>    final float loadFactor;<br>}</p>
+<p> 清单2：Segment的定义<br>static final class Segment extends ReentrantLock implements Serializable {<br>    transient volatile int count;<br>    transient int modCount;<br>    transient int threshold;<br>    transient volatile AtomicReferenceArray<hashentry> table;<br>    final float loadFactor;<br>}</hashentry></p>
 <p>详细解释一下Segment里面的成员变量的意义：<br>count：Segment中元素的数量<br>modCount：对table的大小造成影响的操作的数量（比如put或者remove操作）<br>threshold：阈值，Segment里面元素的数量超过这个值依旧就会对Segment进行扩容<br>table：链表数组，数组中的每一个元素代表了一个链表的头部<br>loadFactor：负载因子，用于确定threshold<br>2.Hash运算的妙用<br>位运算定位数据在某数组中下标<br>　　ConcurrentHashMap为什么叫HashMap，这和它的运算的方法有着密切的关联，ConcurrentHashMap中查找数据对象采用的是对数据键的hash值两次位运算来定位数据，在这里我们先简单了解下如何通过位运算来定位到数据在某个数组的下标位置。<br>    假设我们有一个长度为 16 的数组，我们如何通过位运算才能快速的放入和读取数据呢？<br>    本质上就是我们需要把数据的hash值放入到数组的固定位置，那这个位置也就是介于0-15之间的数值，根据位运算法则，任何数与一个指定的掩码(Mask)数据进行‘与’运算，结果都将小于等于掩码，则我们可指定掩码为15=24-1；为什么数组长度必须要2n？因为的 2n-1 作为掩码其二进制格式是 1111 1111。</p>
 <p>0110｜0111｜1110 任意hash值<br>0000｜0000｜1111 掩码15的二进制<br>————-‘与’运算———–<br>0000｜0000｜1110 结果&lt;=掩码</p>
 <p>位运算小口诀：清零取数用与，某位置一用或，取反交换用异或</p>
@@ -235,7 +250,7 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 <pre><code>从上面代码不长，但我们可以看看4-15行，删除这几行代码对运行结果毫无影响，其存在的原因是为了提高数据查询效率，它的原理是在没有锁的情况下做一次数据查询尝试，如果查询到则直接返回，没查到则继续下面的流程；而第18行代码则是在有锁的情况下再查询数据，查不到则从DB加载数据返回。在大多数情况下，因为查询不需要对数据块加锁，所以效率有很大提升。</code></pre><p>d.HashEntry定位</p>
 <p> 清单6：根据key和hash定位到具体的HashEntry</p>
 <p>HashEntry getEntry(String key, int hash) {<br>    // 首先拿到链头HashEntry，然后依次查找整个entry链<br>    for (HashEntry e = getFirst(hash); e != null; e = e.next) {<br>        if (e.hash == hash &amp;&amp; key.equals(e.key)) {<br>            return e;<br>        }<br>    }<br>    return null;<br>}</p>
-<p> 清单5：链头HashEntry的定位<br>HashEntry&lt;K, V&gt; getFirst(int hash) {<br>    AtomicReferenceArray<HashEntry> tab = table;<br>    return tab.get(hash &amp; (tab.length() - 1));<br>}</p>
+<p> 清单5：链头HashEntry的定位<br>HashEntry&lt;K, V&gt; getFirst(int hash) {<br>    AtomicReferenceArray<hashentry> tab = table;<br>    return tab.get(hash &amp; (tab.length() - 1));<br>}</hashentry></p>
 <pre><code>相较于Segment的复杂度，HashEntry则是正统的位运算定位方法，标准的 hash &amp; [长度-1]。</code></pre><p>总结<br>    至此我们可以了解缓存的整个数据查找的过程：<br>    1.将key的hash进行二次hash<br>    2.根据hash值定位到数据在哪一个segment中：segmentFor()<br>    3.根据hash值定位到数据在table中的第一个HashEntry<br>    4.根据HashEntry中的next属性，依次比对，直到返回结果</p>
 <pre><code>从上述过程中，我们可以理解缓存为什么这么快，因为它在查找过程中仅进行一次hash运算，2次位运算就定位到数据所在的数据块，而链式查找的效率也是比较高的，更关键的是绝大多数情况下，如果数据存在，缓存会首先进行查询尝试，以避免数据块加锁，所以缓存才能快速的查询到数据。</code></pre><p>　　接下来我们会讲讲缓存的并发写入流程，敬请期待。</p>
 
@@ -291,10 +306,10 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
@@ -305,7 +320,9 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+    <img class="site-author-image" itemprop="image" alt="XiaoTian"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">XiaoTian</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -314,7 +331,7 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
           <a href="/archives/">
         
           <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -323,6 +340,11 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yzbty32" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yzbty32" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
   </div>
 
 
@@ -348,12 +370,12 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">XiaoTian</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Design – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
   </div>
 
         
@@ -375,6 +397,8 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="小天的Blog" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -21,12 +21,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
@@ -47,10 +47,10 @@
 </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="小天的Blog">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en">
+<meta property="og:site_name" content="小天的Blog">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/">
@@ -67,7 +67,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>小天的Blog</title>
   
 
 
@@ -111,14 +111,14 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">小天的Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -132,12 +132,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Startseite</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Kategorien</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Schlagwörter</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archiv</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>Über</a>
 
   </li>
   </ul>
@@ -165,17 +180,17 @@
         
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/hello-%E5%B0%8F%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="XiaoTian">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小天的Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -188,10 +203,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2019-11-19 11:20:26 / Modified: 11:21:20" itemprop="dateCreated datePublished" datetime="2019-11-19T11:20:26+08:00">2019-11-19</time>
+              <time title="Erstellt: 2019-11-19 11:20:26 / Geändert am: 11:21:20" itemprop="dateCreated datePublished" datetime="2019-11-19T11:20:26+08:00">2019-11-19</time>
             </span>
 
           
@@ -206,7 +221,6 @@
 
       
           <p>hello 小天,今天周二呀，天气还不错！！！</p>
-
       
     </div>
 
@@ -224,17 +238,17 @@
         
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="XiaoTian">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小天的Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -247,10 +261,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
-              <time title="Created: 2019-11-19 11:05:33 / Modified: 11:06:10" itemprop="dateCreated datePublished" datetime="2019-11-19T11:05:33+08:00">2019-11-19</time>
+              <time title="Erstellt: 2019-11-19 11:05:33 / Geändert am: 11:06:10" itemprop="dateCreated datePublished" datetime="2019-11-19T11:05:33+08:00">2019-11-19</time>
             </span>
 
           
@@ -265,37 +279,14 @@
 
       
           <p>大家都知道ConcurrentHashMap的并发读写速度很快，但为什么它会这么快？这主要归功于其内部数据结构和独特的hash运算以及分离锁的机制。做游戏性能很重要，为了提高数据的读写速度，方法之一就是采用缓存机制。因此缓存的性能直接影响游戏的承载量和运行流畅度，作为核心基础设施，缓存必须具备以下方面的功能：</p>
-<p>1.快速定位数据<br>2.并发变更数据<br>3.数据的过期控制与异步写入<br>4.高并发的情况下缓存数据的一致性</p>
-<p>　　接下来，我就就几篇文章从上述几个方面来讲述下单服务器的缓存实现原理，本文的缓存是在guava的Cache基础上进一步扩展，原google缓存文档可参考：<a href="http://code.google.com/p/guava-libraries/wiki/CachesExplained" target="_blank" rel="noopener">http://code.google.com/p/guava-libraries/wiki/CachesExplained</a></p>
-<p>注意：本文是guava的Cache增强版，因此源码有稍许改动，详细源码请参考：<a href="https://github.com/cm4j/cm4j-all。" target="_blank" rel="noopener">https://github.com/cm4j/cm4j-all。</a></p>
-<p>系列文章目录：<br>并发读写缓存实现机制(零)：缓存操作指南<br>并发读写缓存实现机制(一)：为什么ConcurrentHashMap可以这么快？<br>并发读写缓存实现机制(二)：高并发下数据写入与过期<br>并发读写缓存实现机制(三)：API封装和简化<br>1.ConcurrentHashMap的数据结构<br>　　我们知道，一本书有着丰富的内容，那如何从一本书中找到我所需要的主要内容呢？自然而然我们就想到目录和子目录，首先，目录把书的内容分成很多个小块；其次，目录也是一个索引，通过目录我们就知道对应内容位于这本书的第几页，然后我们再按顺序浏览就能找到我们所需要的文章内容。</p>
-<p>　　google的Cache借鉴了JDK的ConcurrentHashMap的设计思路，其本质就是基于上述流程设计的，翻看两者源码，有很大一部分是相同的，为了更好的理解缓存的高并发的实现，我们先来探索下ConcurrentHashMap的数据结构图：</p>
-<p>　　由上图我们可以看出，首先ConcurrentHashMap先把数据分到0-16个默认创建好的数组中，数组里面的元素就叫segment，相当于书的大目录；每个segment里面包含一个名叫table的数组，这个数组里面的元素就是HashEntry，相当于书的一个子目录；HashEntry里面有下一个HashEntry的引用，这样一个一个迭代就能找到我们所需要的内容。</p>
-<p>　　ConcurrentHashMap 类中包含两个静态内部类HashEntry和Segment。HashEntry用来封装映射表的 键/值对；Segment 用来充当数据划分和锁的角色，每个Segment对象守护整个散列映射表的若干个table。每个table是由若干个 HashEntry对象链接起来的链表。一个ConcurrentHashMap实例中包含由若干个Segment对象组成的数组。</p>
-<p>a.HashEntry</p>
-<p> 清单1：HashEntry的定义<br>static final class HashEntry&lt;K, V&gt; {<br>    final K key;<br>    final int hash;<br>    volatile AbsReference value;<br>    final HashEntry&lt;K, V&gt; next;<br>}</p>
-<pre><code>书本上同一目录和子目录下面可能包含许多个章节内容，同样的，在ConcurrentHashMap中同一个Segment中同一个HashEntry代表的位置上可能也有许多不同的内容，我们称之为数据碰撞，而ConcurrentHashMap采用“分离链接法”来处理“碰撞”，即把“碰撞”的 HashEntry 对象链接成一个链表，一个接一个的。
-HashEntry的一个特点，除了value以外，其他的几个变量都是final的，这样做是为了防止链表结构被破坏，出现ConcurrentModification的情况，这种不变性来降低读操作对加锁的需求，ConcurrentHashMap才能保证数据在高并发的一致性。后面的数据写入章节我们再进行讨论数据是如何插入和移除的。</code></pre><p>b.Segment</p>
-<p> 清单2：Segment的定义<br>static final class Segment extends ReentrantLock implements Serializable {<br>    transient volatile int count;<br>    transient int modCount;<br>    transient int threshold;<br>    transient volatile AtomicReferenceArray<HashEntry> table;<br>    final float loadFactor;<br>}</p>
-<p>详细解释一下Segment里面的成员变量的意义：<br>count：Segment中元素的数量<br>modCount：对table的大小造成影响的操作的数量（比如put或者remove操作）<br>threshold：阈值，Segment里面元素的数量超过这个值依旧就会对Segment进行扩容<br>table：链表数组，数组中的每一个元素代表了一个链表的头部<br>loadFactor：负载因子，用于确定threshold<br>2.Hash运算的妙用<br>位运算定位数据在某数组中下标<br>　　ConcurrentHashMap为什么叫HashMap，这和它的运算的方法有着密切的关联，ConcurrentHashMap中查找数据对象采用的是对数据键的hash值两次位运算来定位数据，在这里我们先简单了解下如何通过位运算来定位到数据在某个数组的下标位置。<br>    假设我们有一个长度为 16 的数组，我们如何通过位运算才能快速的放入和读取数据呢？<br>    本质上就是我们需要把数据的hash值放入到数组的固定位置，那这个位置也就是介于0-15之间的数值，根据位运算法则，任何数与一个指定的掩码(Mask)数据进行‘与’运算，结果都将小于等于掩码，则我们可指定掩码为15=24-1；为什么数组长度必须要2n？因为的 2n-1 作为掩码其二进制格式是 1111 1111。</p>
-<p>0110｜0111｜1110 任意hash值<br>0000｜0000｜1111 掩码15的二进制<br>————-‘与’运算———–<br>0000｜0000｜1110 结果&lt;=掩码</p>
-<p>位运算小口诀：清零取数用与，某位置一用或，取反交换用异或</p>
-<pre><code>通过上面的小例子，我们可以了解：hash值与 数组长度-1 的掩码进行‘与’操作，会得到一个介于0到长度-1的数值，我们就可以设定这个数值就是数据所在的数组下标，即数据所在的数组下标=hash &amp; [数组长度-1]，这就是HashMap定位数据的基本位操作。</code></pre><p>3.ConcurrentHashMap中数据的定位<br>a.二次hash</p>
-<pre><code>首先缓存先对hash值进行了二次hash，之所以要进行再哈希，其目的是为了减少哈希冲突，使元素能够均匀的分布在不同的Segment上，从而提高容器的存取效率。</code></pre><p> 清单3：Wang/Jenkins再hash<br>private static int hash(int h) {<br>    // Spread bits to regularize both segment and index locations,<br>    // using variant of single-word Wang/Jenkins hash.<br>    h += (h &lt;&lt;  15) ^ 0xffffcd7d;<br>    h ^= (h &gt;&gt;&gt; 10);<br>    h += (h &lt;&lt;   3);<br>    h ^= (h &gt;&gt;&gt;  6);<br>    h += (h &lt;&lt;   2) + (h &lt;&lt; 14);<br>    return h ^ (h &gt;&gt;&gt; 16);<br>}</p>
-<p>b.Segment定位</p>
-<pre><code>上面的数据结构中我们讲到ConcurrentHashMap首先把数据分为2个大块，segment和table，这2个都是数组，首先我们看下segment的定位，它的代码也比较简洁：</code></pre><p> 清单4：segment的定位<br>final Segment&lt;K, V&gt; segmentFor(int hash) {<br>    // 这里的segmentMask就是数组长度-1<br>    return segments[(hash &gt;&gt;&gt; segmentShift) &amp; segmentMask];<br>}</p>
-<pre><code>上面的代码有2个步骤：
-1.将hash值右移，目的是让高位参与hash运算，以避免低位运算hash值一样的情况。右移的位数如何确定？假设Segment的数量是2的n次方，根据元素的hash值的高n位就可以确定元素到底在哪一个Segment中，因此右移的位数为：n位
-2.和segmentMask进行‘与’操作，得到segments的数组下标
-如果大家想了解二次hash和右移的原因，请参考：http://blog.csdn.net/guangcigeyun/article/details/8278346</code></pre><p>c.Segment中get()方法<br>    在定位到数据所在的segment，接下来我们看下segment中get()方法，这个方法是查找数据的主要方法。</p>
-<p> 清单5：Segment中get()方法<br>AbsReference get(String key, int hash, CacheLoader&lt;String, AbsReference&gt; loader, boolean isLoad) {<br>    final StopWatch watch = new Slf4JStopWatch();<br>    try {<br>        if (count != 0) { // 先看看数量是否大于0<br>            HashEntry e = getEntry(key, hash);<br>            if (e != null) {<br>                // 这里只是一次无锁情况的快速尝试查询，如果未查询到，会在有锁情况下再查一次<br>                AbsReference value = getLiveValue(key, hash, now());<br>                watch.lap(“cache.getLiveValue()”);<br>                if (value != null) {<br>                    recordAccess(e);<br>                    return value;<br>                }<br>            }<br>        }<br>        if (isLoad) {<br>            // 对象为null或者对象已过期，则从在锁的情况下再查一次，还没有则从DB中加载数据<br>            AbsReference ref = lockedGetOrLoad(key, hash, loader);<br>            watch.lap(“cache.lockedGetOrLoad()”);<br>            return ref;<br>        }<br>    } finally {<br>        postReadCleanup();<br>        watch.stop(“cache.get()”);<br>    }<br>    return null;<br>}</p>
-<pre><code>从上面代码不长，但我们可以看看4-15行，删除这几行代码对运行结果毫无影响，其存在的原因是为了提高数据查询效率，它的原理是在没有锁的情况下做一次数据查询尝试，如果查询到则直接返回，没查到则继续下面的流程；而第18行代码则是在有锁的情况下再查询数据，查不到则从DB加载数据返回。在大多数情况下，因为查询不需要对数据块加锁，所以效率有很大提升。</code></pre><p>d.HashEntry定位</p>
-<p> 清单6：根据key和hash定位到具体的HashEntry</p>
-<p>HashEntry getEntry(String key, int hash) {<br>    // 首先拿到链头HashEntry，然后依次查找整个entry链<br>    for (HashEntry e = getFirst(hash); e != null; e = e.next) {<br>        if (e.hash == hash &amp;&amp; key.equals(e.key)) {<br>            return e;<br>        }<br>    }<br>    return null;<br>}</p>
-<p> 清单5：链头HashEntry的定位<br>HashEntry&lt;K, V&gt; getFirst(int hash) {<br>    AtomicReferenceArray<HashEntry> tab = table;<br>    return tab.get(hash &amp; (tab.length() - 1));<br>}</p>
-<pre><code>相较于Segment的复杂度，HashEntry则是正统的位运算定位方法，标准的 hash &amp; [长度-1]。</code></pre><p>总结<br>    至此我们可以了解缓存的整个数据查找的过程：<br>    1.将key的hash进行二次hash<br>    2.根据hash值定位到数据在哪一个segment中：segmentFor()<br>    3.根据hash值定位到数据在table中的第一个HashEntry<br>    4.根据HashEntry中的next属性，依次比对，直到返回结果</p>
-<pre><code>从上述过程中，我们可以理解缓存为什么这么快，因为它在查找过程中仅进行一次hash运算，2次位运算就定位到数据所在的数据块，而链式查找的效率也是比较高的，更关键的是绝大多数情况下，如果数据存在，缓存会首先进行查询尝试，以避免数据块加锁，所以缓存才能快速的查询到数据。</code></pre><p>　　接下来我们会讲讲缓存的并发写入流程，敬请期待。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -313,17 +304,17 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
         
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="XiaoTian">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小天的Blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -336,9 +327,9 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
 
-              <time title="Created: 2019-11-18 16:40:39" itemprop="dateCreated datePublished" datetime="2019-11-18T16:40:39+08:00">2019-11-18</time>
+              <time title="Erstellt: 2019-11-18 16:40:39" itemprop="dateCreated datePublished" datetime="2019-11-18T16:40:39+08:00">2019-11-18</time>
             </span>
 
           
@@ -353,19 +344,14 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 
       
           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/18/hello-world/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -403,10 +389,10 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          Inhaltsverzeichnis
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          Übersicht
         </li>
       </ul>
 
@@ -417,7 +403,9 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+    <img class="site-author-image" itemprop="image" alt="XiaoTian"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">XiaoTian</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -426,7 +414,7 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
           <a href="/archives/">
         
           <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">Artikel</span>
         </a>
       </div>
   </nav>
@@ -435,6 +423,11 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
     <a href="/atom.xml" rel="alternate">
       <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yzbty32" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yzbty32" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
   </div>
 
 
@@ -460,12 +453,12 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">XiaoTian</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">Design – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
   </div>
 
         
@@ -487,6 +480,8 @@ HashEntry的一个特点，除了value以外，其他的几个变量都是final�
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
