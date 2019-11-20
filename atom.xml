@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://github.com/yzbty32/"/>
   <updated>2019-11-19T03:21:20.691Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://github.com/yzbty32/</id>
   
   <author>
     <name>XiaoTian</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hello 小天</title>
-    <link href="http://yoursite.com/2019/11/19/hello-%E5%B0%8F%E5%A4%A9/"/>
-    <id>http://yoursite.com/2019/11/19/hello-%E5%B0%8F%E5%A4%A9/</id>
+    <link href="https://github.com/yzbty32/2019/11/19/hello-%E5%B0%8F%E5%A4%A9/"/>
+    <id>https://github.com/yzbty32/2019/11/19/hello-%E5%B0%8F%E5%A4%A9/</id>
     <published>2019-11-19T03:20:26.000Z</published>
     <updated>2019-11-19T03:21:20.691Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>并发读写缓存实现机制：为什么ConcurrentHashMap可以这么快</title>
-    <link href="http://yoursite.com/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/"/>
-    <id>http://yoursite.com/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/</id>
+    <link href="https://github.com/yzbty32/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/"/>
+    <id>https://github.com/yzbty32/2019/11/19/%E5%B9%B6%E5%8F%91%E8%AF%BB%E5%86%99%E7%BC%93%E5%AD%98%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88ConcurrentHashMap%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%BF%AB/</id>
     <published>2019-11-19T03:05:33.000Z</published>
     <updated>2019-11-19T03:06:10.339Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/11/18/hello-world/"/>
-    <id>http://yoursite.com/2019/11/18/hello-world/</id>
+    <link href="https://github.com/yzbty32/2019/11/18/hello-world/"/>
+    <id>https://github.com/yzbty32/2019/11/18/hello-world/</id>
     <published>2019-11-18T08:40:39.010Z</published>
     <updated>2019-11-18T08:40:39.010Z</updated>
     
